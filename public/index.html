@@ -95,6 +95,27 @@
         <!--end image-->
         <button type="submit" id = "add-meal">Add meal</button>
       </form>
+
+      <form action="/chefs" class="chef-form" method="post">
+        <label>name</label>
+        <input name="name" type="text">
+        <br>
+        <label>resturants</label>
+        <select name="resturant_id" id="resturant">
+          </select>
+        <br>
+        <button type="submit" id = "add-chef">Add</button>
+      </form>
+
+      <form action="/resturants" class="resturant-form" method="post">
+        <label>name</label>
+        <input name="name" type="text">
+        <br>
+        <label>location</label>
+        <input name="location" type="text">
+        <br>
+        <button type="submit" id = "add-chef">Add</button>
+      </form>
     </section>
     <script src="JS/creatingElements.js"></script>
     <script src="JS/fetchingData.js"></script>

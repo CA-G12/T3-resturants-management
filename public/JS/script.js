@@ -5,7 +5,8 @@ const resturantsTab = document.getElementById('resturants-tab');
 const chefsTab = document.getElementById('chefs-tab');
 const mealsTab = document.getElementById('meals-tab');
 const formAddMeal = document.getElementById('addMeal');
-const select = document.getElementById('Chef')
+const selectchefs = document.getElementById('Chef')
+const selectresturants = document.getElementById('resturant')
 const addMeal = document.getElementById('add-meal')
 
 // ==== SHOW MENU ==== //
@@ -42,8 +43,24 @@ addMeal.addEventListener('click' , ()=>{
            let option = document.createElement('option');
            option.setAttribute('value' , chef.id);
            option.textContent = chef.name ;
-           select.appendChild(option);
+           selectchefs.appendChild(option);
             console.log(chef.name , chef.id)
+        });
+    })
+    .catch(console.error);
+
+
+
+
+    fetch('/resturants')
+    .then((res) => (res.json()))
+    .then((resturants) => {
+      resturants.forEach(resturant => {
+           let option = document.createElement('option');
+           option.setAttribute('value' , resturant.id);
+           option.textContent = resturant.name ;
+           selectresturants.appendChild(option);
+            console.log(resturant.name , resturant.id)
         });
     })
     .catch(console.error);

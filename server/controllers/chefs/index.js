@@ -1,3 +1,4 @@
 const getChefs = require('./getChefs');
+const postChef = require('./postChef');
 
-module.exports = { getChefs };
+module.exports = { getChefs, postChef };
