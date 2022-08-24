@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const {
-  getResturants,
+  getResturants,postResturant
 } = require('../controllers');
 
-router.route('/').get(getResturants);
+router.route('/').get(getResturants).post(postResturant);
 
 module.exports = router;
