@@ -38,13 +38,14 @@
 
           <ul class="nav_menu_list">
             <li class="nav_menu_item">
-              <a href="#resturants-table" class="nav_menu_link">Resturants</a>
+              <button class="nav_menu_link" id="resturants-tab"
+                >Resturants</button>
             </li>
             <li class="nav_menu_item">
-              <a href="#chefs_table" class="nav_menu_link">Chefs</a>
+              <button href="" class="nav_menu_link" id="chefs-tab">Chefs</button>
             </li>
             <li class="nav_menu_item">
-              <a href="#meals_table" class="nav_menu_link">Meals</a>
+              <button href="" class="nav_menu_link" id="meals-tab">Meals</button>
             </li>
           </ul>
         </div>
@@ -86,8 +87,49 @@
         </tr>
       </table>
     </section>
-    <script src="JS/script.js"></script>
+    <button id = 'addMeal'>+++++</button>
+
+    <!--Form-->
+    <section class="form-container">
+      <h1 class="title">Add meal</h1>
+      <form action="/meals" id="form" novalidate>
+        <!--start meal name-->
+        <section class="requirment">
+          <label class="label">Meal name</label>
+          <input type="text" placeholder="" id="mealName" required />
+        </section>
+        <!--end meal name-->
+        <!--start price-->
+        <section class="requirment">
+          <label class="label">Price</label>
+          <input type="number" placeholder="" id="price" />
+        </section>
+        <!--end price-->
+        <!--start enough for-->
+        <section class="requirment">
+          <label class="label">Enough for</label>
+          <input type="num" placeholder="" id="numOfPeople" />
+        </section>
+        <!--end enough for-->
+        <!--start chef-->
+        <section class="requirment">
+          <label class="label">Cooked by</label>
+          <select name="" id="Chef">
+            <!-- <option value = '1'>Ahemd</option> -->
+          </select>
+
+        </section>
+        <!--end image-->
+        <section class="requirment">
+          <label class="label">Meal image url</label>
+          <input type="url" placeholder="" id="image" />
+        </section>
+        <!--end image-->
+        <button>Add meal</button>
+      </form>
+    </section>
     <script src="JS/creatingElements.js"></script>
     <script src="JS/fetchingData.js"></script>
+    <script src="JS/script.js"></script>
   </body>
 </html>

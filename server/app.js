@@ -1,18 +1,27 @@
 const { join } = require('path');
 const compression = require('compression');
 const helmet = require('helmet');
+
 const express = require('express');
 const router = require('./routes');
 
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
+app.disable('x-powered-by');
+
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"]
+    }
+  })
+)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
-app.use(helmet());
-
 // app.get('/', (req, res) => {
 //   res.sendFile(join(__dirname, '..', 'public'));
 // });

@@ -105,6 +105,9 @@ th,
 td {
   border: 1px solid black;
 }
+table{
+    width: 80%
+}
 
 @media screen and (max-width: 1000px) {
   .logo h2 {
