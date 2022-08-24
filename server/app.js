@@ -16,7 +16,6 @@ app.use(helmet());
 // app.get('/', (req, res) => {
 //   res.sendFile(join(__dirname, '..', 'public', 'index.html'));
 // });
-
 app.use(router);
 
 app.use((req, res) => {
