@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 app.use(helmet());
 
-// app.get('/', (req, res) => {
-//   res.sendFile(join(__dirname, '..', 'public', 'index.html'));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, '..', 'public', 'index.html'));
+});
 app.use(router);
 
 app.use((req, res) => {
