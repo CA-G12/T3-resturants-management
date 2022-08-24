@@ -1,12 +1,15 @@
-const express = require('express');
-const {getMeals , postMeal} = require('../database/queries/')
+const { getMeals, postMeal } = require('./meals');
 
+module.exports = { getMeals, postMeal };
 
-const router = express.Router();
+// const express = require('express');
+// const {getMeals , postMeal} = require('../database/queries/')
 
-router.get( '/' , (req,res) => {
-    console.log("hello");
-    getMeals().then(data => console.log(data.rows)).catch((erorr) => console.log(erorr));
-})
+// const router = express.Router();
 
-module.exports = router;
+// router.get( '/' , (req,res) => {
+//     console.log("hello");
+//     getMeals().then(data => console.log(data.rows)).catch((erorr) => console.log(erorr));
+// })
+
+// module.exports = router;

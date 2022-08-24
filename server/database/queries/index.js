@@ -1,5 +1,4 @@
 const deleteById = require('./deleteById');
-const getMeals = require('./getMeals');
-const postMeal = require('./postMeal');
+const { getMealsFromDB, addMeal } = require('./meals');
 
-module.exports = { deleteById, getMeals, postMeal };
+module.exports = { deleteById, getMealsFromDB, addMeal };

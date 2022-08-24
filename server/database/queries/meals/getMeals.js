@@ -1,4 +1,4 @@
-const connection = require('../config/connection');
+const connection = require('../../config/connection');
 
 const getMeals = () => connection.query('select * from meals');
 
