@@ -1,6 +1,9 @@
 const { getMeals, postMeal } = require('./meals');
+const { getChefs} = require('./chefs');
+const { getResturants} = require('./resturants');
 
-module.exports = { getMeals, postMeal };
+
+module.exports = { getMeals, postMeal , getChefs, getResturants};
 
 // const express = require('express');
 // const {getMeals , postMeal} = require('../database/queries/')
