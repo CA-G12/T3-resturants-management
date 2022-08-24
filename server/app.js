@@ -2,7 +2,7 @@ const { join } = require('path');
 const compression = require('compression');
 const helmet = require('helmet');
 const express = require('express');
-const router = require("./controllers");
+const router = require('./routes');
 
 const app = express();
 
