@@ -12,10 +12,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 app.use(helmet());
 
-app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, '..', 'public', 'index.html'));
-});
-
 app.use((req, res) => {
   res.status(404).json({ message: 'The page you are looking for is not found !!' });
 });
