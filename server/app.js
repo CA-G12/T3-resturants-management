@@ -2,6 +2,7 @@ const { join } = require('path');
 const compression = require('compression');
 const helmet = require('helmet');
 const express = require('express');
+const router = require("./controllers");
 
 const app = express();
 
@@ -11,6 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 app.use(helmet());
+
+// app.get('/', (req, res) => {
+//   res.sendFile(join(__dirname, '..', 'public', 'index.html'));
+// });
+app.use(router);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'The page you are looking for is not found !!' });
