@@ -1,5 +1,4 @@
 const fetchMeals = () => {
-  console.log('meaaallsss');
   fetch('/meals')
     .then((res) => res.json())
     .then((data) => createMeals(data))

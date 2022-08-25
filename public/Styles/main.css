@@ -15,12 +15,12 @@
 
 /* ==== CSS VARIABLES ==== */
 :root {
-  --primary-color: #00436d;
-  --btn-color: #ff3f3e;
-  --link-color: #2b50c7;
-  --btn-hover-color: #ff7369;
-  --text-content: #334157;
-  --fixed-header-height: 5rem;
+--primary-color: #04604e;
+--btn-color: #ff3f3e;
+--link-color: #009879;
+--btn-hover-color: #ff7369;
+--text-content: #334157;
+--fixed-header-height: 5rem;
 }
 
 /* ==== RESET HTML ==== */
@@ -100,16 +100,65 @@ button {
   right: 3% !important;
 }
 
-table,
-th,
-td {
-  border: 1px solid black;
-}
 table{
-    width: 80%
+  width: 80%;
+  margin:  auto;
 }
 
-@media screen and (max-width: 1000px) {
+
+.users-table {
+  border-collapse: collapse;
+  margin: 25px 10%;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-size: 1rem;
+}
+
+.first-tr {
+  background-color: var(--link-color);
+  color: #ffffff;
+  font-weight: bold;
+}
+
+ .users-table th,
+.users-table td {
+  padding: 12px 15px;
+}
+
+.users-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.users-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.users-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--link-color);
+}
+
+.users-table tbody tr.active-row {
+  font-weight: bold;
+  color: var(--link-color);
+}
+
+.delete-button{
+  color: white;
+  font-size: 1rem;
+  background-color: var(--btn-color);
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+}
+.delete-button:hover{
+  background-color: var(--btn-hover-color);
+  transition: 1s;
+}
+
+@media screen and (max-width: 840px) {
   .logo h2 {
     font-size: 23px;
   }
@@ -147,5 +196,123 @@ table{
   }
   .close_btn:hover {
     color: var(--btn-hover-color);
+  }
+  .go-down2, .go-down{
+    display: none;
+  }
+  #add-meal-form, #add-chef-form, #add-resturant-form{
+   background-color: transparent;
+    /* width: 300px; */
+  }
+}
+.body{
+  /* width: 100%; */
+}
+#add-meal-form, #add-chef-form, #add-resturant-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1.5rem rgba(22, 28, 45, 0.1);
+  margin: 2rem 11rem;
+  padding: 30px 40px;
+  /* width: 100%; */
+}
+.title{
+  color: var(--primary-color);
+  font-size: xx-large;
+  font-weight: bolder;
+}
+.requirment{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+label{
+  color: var(--link-color);
+  font-size: larger;
+  font-weight: 600;
+}
+
+form button{
+  background-color: var(--btn-color);
+  color: #fff;
+  font-size: larger;
+  font-weight: 600;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1.5rem rgba(22, 28, 45, 0.1);
+  margin-top: 1rem;
+  padding: 10px 80px;
+  width:70vh;
+
+}
+form button:hover{
+  background-color: #ff7369;
+}
+
+form input{
+  width:70vh;
+  height: 30px;
+  padding: 10px;
+  color: var(--primary-color);
+  font-size: larger;
+  font-weight: 600;
+}
+hr{
+  margin-bottom: 2rem;
+}
+.go-down{
+  color: var(--primary-color);
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+.go-down2{
+  color: var(--primary-color);
+  position: absolute;
+  top: 135%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.go-down:hover, .go-down2:hover {
+  color: var(--link-color);
+}
+
+.go-down i, .go-down2 i {
+  animation: bouncing 1.5s infinite;
+}
+@keyframes up-and-down {
+
+  0%,
+  100% {
+    top: 0;
+  }
+
+  50% {
+    top: -10px;
+  }
+}
+
+@keyframes bouncing {
+
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+
+  40%,
+  60% {
+    transform: translateY(-15px);
   }
 }

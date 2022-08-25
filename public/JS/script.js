@@ -4,10 +4,9 @@ const CloseBtnId = document.getElementById('close_btn');
 const resturantsTab = document.getElementById('resturants-tab');
 const chefsTab = document.getElementById('chefs-tab');
 const mealsTab = document.getElementById('meals-tab');
-const formAddMeal = document.getElementById('addMeal');
 const selectchefs = document.getElementById('Chef')
 const selectresturants = document.getElementById('resturant')
-const addMeal = document.getElementById('add-meal')
+const addMeal = document.getElementById('add-meal');
 
 // ==== SHOW MENU ==== //
 ToggleBtnId.addEventListener('click', () => {
@@ -25,12 +24,6 @@ resturantsTab.addEventListener('click', fetchResturants);
 chefsTab.addEventListener('click', fetchChefs);
 mealsTab.addEventListener('click', fetchMeals);
 
-formAddMeal.addEventListener('click', () => {
-  console.log('clicked this ched', select.value)
-
-})
-
-
 addMeal.addEventListener('click' , ()=>{
   
 })
@@ -44,7 +37,6 @@ addMeal.addEventListener('click' , ()=>{
            option.setAttribute('value' , chef.id);
            option.textContent = chef.name ;
            selectchefs.appendChild(option);
-            console.log(chef.name , chef.id)
         });
     })
     .catch(console.error);
@@ -60,7 +52,6 @@ addMeal.addEventListener('click' , ()=>{
            option.setAttribute('value' , resturant.id);
            option.textContent = resturant.name ;
            selectresturants.appendChild(option);
-            console.log(resturant.name , resturant.id)
         });
     })
     .catch(console.error);
