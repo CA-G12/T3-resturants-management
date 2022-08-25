@@ -1,4 +1,3 @@
-```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,14 +15,6 @@
     <link rel="stylesheet" href="./Styles/main.css" />
     <title>Resturants Management</title>
   </head>
-  <!--just for test style-->
-  <!-- <style>
-    table,
-    th,
-    td {
-      border: 1px solid black;
-    }
-  </style> -->
   <body>
     <header class="container header">
       <!-- ==== NAVBAR ==== -->
@@ -39,14 +30,18 @@
 
           <ul class="nav_menu_list">
             <li class="nav_menu_item">
-              <button class="nav_menu_link" id="resturants-tab"
-                >Resturants</button>
+              <button class="nav_menu_link" id="resturants-tab">
+                Resturants
+              </button>
             </li>
             <li class="nav_menu_item">
-              <button href="" class="nav_menu_link" id="chefs-tab">Chefs</button>
+              <button class="nav_menu_link" id="chefs-tab">Chefs</button>
             </li>
             <li class="nav_menu_item">
-              <button href="" class="nav_menu_link" id="meals-tab">Meals</button>
+              <button class="nav_menu_link" id="meals-tab">Meals</button>
+            </li>
+            <li class="nav_menu_item">
+              <a href="/" class="nav_menu_link" id="add-tab"> Add </a>
             </li>
           </ul>
         </div>
@@ -55,72 +50,96 @@
         </button>
       </nav>
     </header>
+    <div class="body">
+      <!--Form-->
+      <section id="add-resturant-form">
+        <h1 class="title">Add Resturant</h1>
+        <form action="/resturants" class="resturant-form" method="post">
+          <section class="requirment">
+            <label>Resturant name</label>
+            <input name="name" type="text" required />
+          </section>
+          <section class="requirment">
+            <label>Resturant location</label>
+            <input name="location" type="text" required />
+          </section>
+          <button type="submit" id="add-resturant">Add Resturant</button>
+        </form>
+      </section>
 
-    <button id = 'addMeal'>+++++</button>
+      <a href="#chef-hr" class="go-down">
+        <i class="fas fa-angle-double-down fa-2x"></i>
+      </a>
+      <hr id="chef-hr" style="width: 0" />
 
-    <!--Form-->
-    <section class="form-container">
-      <h1 class="title">Add meal</h1>
-      <form action="/meals" id="form" novalidate method = "post">
-        <!--start meal name-->
-        <section class="requirment">
-          <label class="label">Meal name</label>
-          <input type="text" placeholder="" id="mealName" required name = "name"/>
-        </section>
-        <!--end meal name-->
-        <!--start price-->
-        <section class="requirment">
-          <label class="label">Price</label>
-          <input type="number" placeholder="" id="price"  name = "price"/>
-        </section>
-        <!--end price-->
-        <!--start enough for-->
-        <section class="requirment">
-          <label class="label">Enough for</label>
-          <input type="num" placeholder="" id="numOfPeople" name = "numOfPeople" />
-        </section>
-        <!--end enough for-->
-        <!--start chef-->
-        <section class="requirment">
-          <label class="label">Cooked by</label>
-          <select name="chef_id" id="Chef">
-          </select>
-
-        </section>
-        <!--end image-->
-        <section class="requirment">
-          <label class="label">Meal image url</label>
-          <input name="image" type="url" placeholder="" id="image" />
-        </section>
-        <!--end image-->
-        <button type="submit" id = "add-meal">Add meal</button>
-      </form>
-
-      <form action="/chefs" class="chef-form" method="post">
-        <label>name</label>
-        <input name="name" type="text">
-        <br>
-        <label>resturants</label>
-        <select name="resturant_id" id="resturant">
-          </select>
-        <br>
-        <button type="submit" id = "add-chef">Add</button>
-      </form>
-
-      <form action="/resturants" class="resturant-form" method="post">
-        <label>name</label>
-        <input name="name" type="text">
-        <br>
-        <label>location</label>
-        <input name="location" type="text">
-        <br>
-        <button type="submit" id = "add-chef">Add</button>
-      </form>
-    </section>
+      <section id="add-chef-form">
+        <h1 class="title">Add Chef</h1>
+        <form action="/chefs" class="chef-form" method="post">
+          <section class="requirment">
+            <label>Chef name</label>
+            <input name="name" type="text" required />
+          </section>
+          <section class="requirment">
+            <label>Working at</label>
+            <select name="resturant_id" id="resturant"></select>
+          </section>
+          <button type="submit" id="add-chef">Add Chef</button>
+        </form>
+      </section>
+      <a href="#meals-hr" class="go-down2">
+        <i class="fas fa-angle-double-down fa-2x"></i>
+      </a>
+      <hr id="meals-hr" style="width: 0" />
+      <section id="add-meal-form">
+        <h1 class="title">Add meal</h1>
+        <form action="/meals" id="form" novalidate method="post">
+          <!--start meal name-->
+          <section class="requirment">
+            <label class="label">Meal name</label>
+            <input
+              type="text"
+              placeholder=""
+              id="mealName"
+              required
+              name="name"
+            />
+          </section>
+          <!--end meal name-->
+          <!--start price-->
+          <section class="requirment">
+            <label class="label">Price</label>
+            <input type="number" placeholder="" id="price" name="price" />
+          </section>
+          <!--end price-->
+          <!--start enough for-->
+          <section class="requirment">
+            <label class="label">Enough for</label>
+            <input
+              type="num"
+              placeholder=""
+              id="numOfPeople"
+              name="numOfPeople"
+            />
+          </section>
+          <!--end enough for-->
+          <!--start chef-->
+          <section class="requirment">
+            <label class="label">Cooked by</label>
+            <select name="chef_id" id="Chef"></select>
+          </section>
+          <!--end image-->
+          <section class="requirment">
+            <label class="label">Meal image url</label>
+            <input name="image" type="url" placeholder="" id="image" />
+          </section>
+          <!--end image-->
+          <button type="submit" id="add-meal">Add meal</button>
+        </form>
+      </section>
+      <hr style="width: 0" />
+    </div>
     <script src="JS/creatingElements.js"></script>
     <script src="JS/fetchingData.js"></script>
     <script src="JS/script.js"></script>
   </body>
 </html>
-
-```

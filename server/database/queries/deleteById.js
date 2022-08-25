@@ -1,5 +1,5 @@
 const connection = require('../config/connection');
 
-const deleteById = (table, id) => connection.query('delete from $1 where id = $2', [table, id]);
+const deleteById = (table, id) => connection.query( `DELETE FROM ${table} WHERE id = ${id};`);
 
 module.exports = deleteById;

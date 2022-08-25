@@ -1,18 +1,6 @@
-const { getMeals, postMeal } = require('./meals');
-const { getChefs, postChef } = require('./chefs');
-const { getResturants, postResturant} = require('./resturants');
+const { getMeals, postMeal, deleteMeal } = require('./meals');
+const { getChefs, postChef , deleteChef} = require('./chefs');
+const { getResturants, postResturant, deleteResturant} = require('./resturants');
 
 
-module.exports = { getMeals, postMeal, getChefs, postChef, getResturants, postResturant};
-
-// const express = require('express');
-// const {getMeals , postMeal} = require('../database/queries/')
-
-// const router = express.Router();
-
-// router.get( '/' , (req,res) => {
-//     console.log("hello");
-//     getMeals().then(data => console.log(data.rows)).catch((erorr) => console.log(erorr));
-// })
-
-// module.exports = router;
+module.exports = { getMeals, postMeal, deleteMeal,getChefs, postChef,deleteChef, getResturants, postResturant, deleteResturant};

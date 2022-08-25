@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const {
-  getChefs,postChef
+  getChefs,postChef, deleteChef
 } = require('../controllers');
 console.log("1");
 router.route('/').get(getChefs).post(postChef);
-console.log("2");
+router.post('/delete-chef/:id',deleteChef );
+
 
 module.exports = router;
