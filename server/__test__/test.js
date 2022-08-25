@@ -4,7 +4,7 @@ const connection = require('../database/config/connection');
 
 const {getMealsFromDB, getChefsFromDB, getResturantsFromDB, addMeal, addChef, addResturant, deleteById} = require('../database/queries/');
 
-beforeEach(() => dbBuild);
+beforeAll(() => dbBuild());
 afterAll(() => connection.end());
 
 
