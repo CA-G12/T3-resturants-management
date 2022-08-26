@@ -1,18 +1,19 @@
-const fetchMeals = () => {
+/* eslint-disable no-unused-vars */
+const fetchMeals = (cb) => {
   fetch('/meals')
     .then((res) => res.json())
-    .then((data) => createMeals(data))
+    .then(cb)
     .catch(console.error);
 };
-const fetchChefs = () => {
+const fetchChefs = (cb) => {
   fetch('/chefs')
     .then((res) => (res.json()))
-    .then((data) => createChefs(data))
+    .then(cb)
     .catch(console.error);
 };
-const fetchResturants = () => {
+const fetchResturants = (cb) => {
   fetch('/resturants')
     .then((res) => (res.json()))
-    .then((data) => createResturants(data))
+    .then(cb)
     .catch(console.error);
 };
