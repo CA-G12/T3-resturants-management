@@ -4,7 +4,7 @@ const {
 } = require('../controllers');
 console.log("1");
 router.route('/').get(getChefs).post(postChef);
-router.post('/delete-chef/:id',deleteChef );
+router.delete('/delete-chef/:id',deleteChef );
 
 
 module.exports = router;
