@@ -1,25 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-use-before-define */
 const body = document.querySelector('.body');
-
-const deleteSelectedMeal = (id) => fetch(`/meals/delete-meal/${id}`, {
-  method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}).then(fetchMeals(createMeals)).catch(console.error);
-
-const deleteSelectedChef = (id) => fetch(`/chefs/delete-chef/${id}`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}).then(fetchChefs(createChefs)).catch(console.error);
-
-const deleteSelectedResturant = (id) => fetch(`/resturants/delete-resturant/${id}`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}).then(fetchResturants(createResturants)).catch(console.error);
 
 const createMeals = (allData) => {
   body.innerText = '';
@@ -91,13 +72,20 @@ const createChefs = (allData) => {
     const th1 = document.createElement('th');
     const th2 = document.createElement('th');
     const th7 = document.createElement('th');
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', () => {
+      deleteSelectedChef(data.id);
+    });
+    th7.appendChild(deleteBtn);
 
     th1.innerText = data.name;
     th2.innerText = data.resturants;
-    th7.innerHTML = '<button class = "delete-button">Delete</button>';
-    th7.addEventListener('click', () => {
-      deleteSelectedChef(data.id);
-    });
+    // th7.innerHTML = '<button class = "delete-button">Delete</button>';
+    // th7.addEventListener('click', () => {
+    //   deleteSelectedChef(data.id);
+    // });
 
     tr.appendChild(th1);
     tr.appendChild(th2);
@@ -113,7 +101,6 @@ const createResturants = (allData) => {
   body.innerText = '';
   const section = document.createElement('section');
   const table = document.createElement('table');
-  section.classList.add('resturants-table');
   table.classList.add('users-table');
   table.innerHTML = `   <tr class = "first-tr">
         <th>Resturant name</th>
@@ -127,13 +114,19 @@ const createResturants = (allData) => {
     const th1 = document.createElement('th');
     const th2 = document.createElement('th');
     const th7 = document.createElement('th');
-
-    th1.innerText = data.name;
-    th2.innerText = data.location;
-    th7.innerHTML = '<button class = "delete-button">Delete</button>';
-    th7.addEventListener('click', () => {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', () => {
       deleteSelectedResturant(data.id);
     });
+    th7.appendChild(deleteBtn);
+    th1.textContent = data.name;
+    th2.textContent = data.location;
+    // th7.innerHTML = '<button class = "delete-button">Delete</button>';
+    // th7.addEventListener('click', () => {
+    //   deleteSelectedResturant(data.id);
+    // });
     tr.appendChild(th1);
     tr.appendChild(th2);
     tr.appendChild(th7);
@@ -141,5 +134,26 @@ const createResturants = (allData) => {
     table.appendChild(tr);
   });
   section.appendChild(table);
-  body.appendChild(table);
+  body.appendChild(section);
 };
+
+const deleteSelectedMeal = (id) => fetch(`/meals/delete-meal/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(fetchMeals(createMeals)).catch(console.error);
+
+const deleteSelectedChef = (id) => fetch(`/chefs/delete-chef/${id}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(fetchChefs(createChefs)).then(alert('Chef deleted successfuly')).catch(console.error);
+
+const deleteSelectedResturant = (id) => fetch(`/resturants/delete-resturant/${id}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(fetchResturants(createResturants)).catch(console.error);

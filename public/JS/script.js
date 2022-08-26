@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const navId = document.getElementById('nav_menu');
 const ToggleBtnId = document.getElementById('toggle_btn');
 const CloseBtnId = document.getElementById('close_btn');
@@ -6,7 +7,6 @@ const chefsTab = document.getElementById('chefs-tab');
 const mealsTab = document.getElementById('meals-tab');
 const selectchefs = document.getElementById('Chef');
 const selectresturants = document.getElementById('resturant');
-const addMeal = document.getElementById('add-meal');
 
 // ==== SHOW MENU ==== //
 ToggleBtnId.addEventListener('click', () => {
@@ -18,35 +18,33 @@ CloseBtnId.addEventListener('click', () => {
   navId.classList.remove('show');
 });
 
+// handle nav bar button
 resturantsTab.addEventListener('click', () => fetchResturants(createResturants));
 chefsTab.addEventListener('click', () => fetchChefs(createChefs));
 mealsTab.addEventListener('click', () => fetchMeals(createMeals));
 
-addMeal.addEventListener('click', () => {
+// add chefs to 'Cooked by'/chefs drop down menu
+const handleChefsMenu = (chefs) => {
+  chefs.forEach((chef) => {
+    const option = document.createElement('option');
+    option.setAttribute('value', chef.id);
+    option.textContent = chef.name;
+    selectchefs.appendChild(option);
+  });
+};
 
-});
+// fetch chefs stored in the database and handle chefs drop down menu
+fetchChefs(handleChefsMenu);
 
-// fetchChefs and add them to the drop down menu
-fetch('/chefs')
-  .then((res) => (res.json()))
-  .then((chefs) => {
-    chefs.forEach((chef) => {
-      const option = document.createElement('option');
-      option.setAttribute('value', chef.id);
-      option.textContent = chef.name;
-      selectchefs.appendChild(option);
-    });
-  })
-  .catch(console.error);
-// fetchChefs and add them to the drop down menu
-fetch('/resturants')
-  .then((res) => (res.json()))
-  .then((resturants) => {
-    resturants.forEach((resturant) => {
-      const option = document.createElement('option');
-      option.setAttribute('value', resturant.id);
-      option.textContent = resturant.name;
-      selectresturants.appendChild(option);
-    });
-  })
-  .catch(console.error);
+// add resturants to 'Wroking at'/resturants drop down menu
+const handleResturantsMenu = (resturants) => {
+  resturants.forEach((resturant) => {
+    const option = document.createElement('option');
+    option.setAttribute('value', resturant.id);
+    option.textContent = resturant.name;
+    selectresturants.appendChild(option);
+  });
+};
+
+// fetch resturants stored in the database and handle resturants drop down menu
+fetchResturants(handleResturantsMenu);

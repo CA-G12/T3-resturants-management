@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const fetchMeals = (cb) => {
   fetch('/meals')
     .then((res) => res.json())
