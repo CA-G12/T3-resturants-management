@@ -4,6 +4,6 @@ const {
 } = require('../controllers');
 
 router.route('/').get(getResturants).post(postResturant);
-router.post('/delete-resturant/:id',deleteResturant );
+router.delete('/delete-resturant/:id',deleteResturant );
 
 module.exports = router;

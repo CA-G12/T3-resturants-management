@@ -1,43 +1,37 @@
 const body = document.querySelector('.body');
 
-const deleteSelectedMeal = (id) => {
-  return fetch(`/meals/delete-meal/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then(
-    fetch('/meals')
-      .then((res) => res.json())
-      .then((data) => createMeals(data)),
-  ).catch(console.error);
-};
-const deleteSelectedChef = (id) => {
-  return fetch(`/chefs/delete-chef/${id}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then(
-    fetch('/chefs')
-      .then((res) => (res.json()))
-      .then((data) => createChefs(data)),
-  )
-    .catch(console.error);
-};
-const deleteSelectedResturant = (id) => {
-  return fetch(`/resturants/delete-resturant/${id}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then(
-    fetch('/resturants')
-      .then((res) => (res.json()))
-      .then((data) => createResturants(data)),
-  )
-    .catch(console.error);
-};
+const deleteSelectedMeal = (id) => fetch(`/meals/delete-meal/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(
+  fetch('/meals')
+    .then((res) => res.json())
+    .then((data) => createMeals(data)),
+).catch(console.error);
+const deleteSelectedChef = (id) => fetch(`/chefs/delete-chef/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(
+  fetch('/chefs')
+    .then((res) => (res.json()))
+    .then((data) => createChefs(data)),
+)
+  .catch(console.error);
+const deleteSelectedResturant = (id) => fetch(`/resturants/delete-resturant/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}).then(
+  fetch('/resturants')
+    .then((res) => (res.json()))
+    .then((data) => createResturants(data)),
+)
+  .catch(console.error);
 
 const createMeals = (allData) => {
   body.innerText = '';
@@ -54,7 +48,6 @@ const createMeals = (allData) => {
     <th>img</th>
     <th></th>
   </tr>`;
-
 
   allData.forEach((data) => {
     const tr = document.createElement('tr');
@@ -91,7 +84,6 @@ const createMeals = (allData) => {
   section.appendChild(table);
   body.appendChild(table);
 };
-
 
 const createChefs = (allData) => {
   body.innerText = '';
